@@ -1,0 +1,135 @@
+@font-face {
+    font-family: main;
+    src: url('./fonts/CaslonAntique.ttf');
+}
+main{
+    @include vert;
+    width: 100%;
+    height: 100%;
+    background: black;
+    flex-direction: column;
+    font-family: main;
+    background-image: url('./svgs/background.svg');
+    background-repeat: repeat;
+    .logo{
+        width: min(389px, 70%);
+        margin: 42px;
+    }
+    .search input{
+        font-family: main;
+        font-size: 25px;
+        margin-bottom: 1.2vh
+    }
+    .shortcuts{
+        @include row;
+        width: 100%;
+        margin-top: 35px;
+        .col{
+            @include row;
+            $height: calc(var(--vh) * 6);
+            height: $height;
+            padding-top: $height;
+            flex: 1;
+            box-sizing: border-box;
+            border: 1px solid white;
+            cursor: pointer;
+            color: white;
+            &:nth-of-type(4n){
+                border-color: #0ff;
+            }
+            &:nth-of-type(4n - 1){
+                border-color: #4000ff;
+            }
+            &:nth-of-type(4n - 2){
+                border-color: #f0f;
+            }
+            &:nth-of-type(4n - 3){
+                border-color: #f02;
+            }
+            &.open{
+                &:nth-of-type(4n){
+                    border-color: #0ff;
+                    background: #0ff;
+                }
+                &:nth-of-type(4n - 1){
+                    border-color: #4000ff;
+                    background: #4000ff;
+                }
+                &:nth-of-type(4n - 2){
+                    border-color: #f0f;
+                    background: #f0f;
+                }
+                &:nth-of-type(4n - 3){
+                    border-color: #f02;
+                    background: #f02;
+                }
+            }
+            h1{
+                @include center;
+                height: $height;
+                transform: translateY(calc(-100%));
+                font-size: calc(var(--vh) * 4.9);
+                margin: 0;
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+    }
+    #curShortcut{
+        width: 100%;
+        height: 120px;
+        @include row;
+        justify-content: center;
+        &.fadeout{
+            animation: fadeout 0.4s;
+        }
+        &.fadein{
+            animation: fadein 0.4s;
+        }
+        @keyframes fadeout {
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+        @keyframes fadein {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        a{
+            margin: 30px 30px 0 30px;
+            @include row;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            box-sizing: border-box;
+            border-radius: 35px;
+            padding: 17px 35px;
+            border: 2px solid #f02;
+            &:hover{
+                background: #f02;
+            }
+            &:not([href]){
+                display: none;
+            }
+            &[href=""]{
+                display: none;
+            }
+            img{
+                width: 16px;
+                height: 16px;
+                background: white;
+            }
+            p{
+                margin: 0;
+                margin-left: 5px;
+            }
+        }
+    }
+}

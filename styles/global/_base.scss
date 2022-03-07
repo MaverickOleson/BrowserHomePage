@@ -1,0 +1,13 @@
+body{
+    width: calc(var(--vw) * 100);
+    min-height: calc(var(--vh) * 100) !important;
+    margin: 0;
+}
+div{
+    height: fit-content;
+    position: relative;
+}
+input[type=text]{
+    border: none;
+    padding: 0;
+}
