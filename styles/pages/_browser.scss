@@ -5,25 +5,64 @@
 main{
     @include vert;
     width: 100%;
-    height: 100%;
-    background: black;
     flex-direction: column;
     font-family: main;
-    background-image: url('./svgs/background.svg');
-    background-repeat: repeat;
     .logo{
-        width: min(389px, 70%);
-        margin: 42px;
+        width: min(389px, 80%);
+        margin: 30px 0 10px 0;
+        border-radius: 100%;
+        @include center;
+        img{
+            width: 100%;
+            z-index: 1;
+        }
+        &:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
     }
     .search input{
         font-family: main;
         font-size: 25px;
-        margin-bottom: 1.2vh
+        margin-bottom: 1.2vh;
+        background: transparent;
+        border: 1px solid white;
+        color: white;
+        &::placeholder{
+            color: darkgray;
+        }
+        &:focus{
+            animation: borderRainbow 10s linear infinite;
+            @keyframes borderRainbow {
+                0%{
+                    border-color: #fff;
+                }
+                16%{
+                    border-color: #4000ff;
+                }
+                33%{
+                    border-color: #f0f;
+                }
+                49%{
+                    border-color: #f02;
+                }
+                66%{
+                    border-color: #f0f;
+                }
+                73%{
+                    border-color: #4000ff;
+                }
+                100%{
+                    border-color: #0ff;
+                }
+            }
+        }
     }
     .shortcuts{
         @include row;
         width: 100%;
-        margin-top: 35px;
+        margin: 35px 0 0 0;
         .col{
             @include row;
             $height: calc(var(--vh) * 6);

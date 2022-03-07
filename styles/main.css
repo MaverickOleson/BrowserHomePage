@@ -1,6 +1,8 @@
 body {
   width: calc(var(--vw) * 100);
-  min-height: calc(var(--vh) * 100) !important;
+  background: black;
+  background-image: url("./svgs/background.svg");
+  background-repeat: repeat;
   margin: 0;
 }
 
@@ -23,21 +25,62 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
-  background: black;
   flex-direction: column;
   font-family: main;
-  background-image: url("./svgs/background.svg");
-  background-repeat: repeat;
 }
 main .logo {
-  width: min(389px, 70%);
-  margin: 42px;
+  width: min(389px, 80%);
+  margin: 30px 0 10px 0;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .logo img {
+  width: 100%;
+  z-index: 1;
+}
+main .logo:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
 }
 main .search input {
   font-family: main;
   font-size: 25px;
   margin-bottom: 1.2vh;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+main .search input::placeholder {
+  color: darkgray;
+}
+main .search input:focus {
+  animation: borderRainbow 10s linear infinite;
+}
+@keyframes borderRainbow {
+  0% {
+    border-color: #fff;
+  }
+  16% {
+    border-color: #4000ff;
+  }
+  33% {
+    border-color: #f0f;
+  }
+  49% {
+    border-color: #f02;
+  }
+  66% {
+    border-color: #f0f;
+  }
+  73% {
+    border-color: #4000ff;
+  }
+  100% {
+    border-color: #0ff;
+  }
 }
 main .shortcuts {
   display: flex;
@@ -46,7 +89,7 @@ main .shortcuts {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 35px;
+  margin: 35px 0 0 0;
 }
 main .shortcuts .col {
   display: flex;
@@ -95,7 +138,7 @@ main .shortcuts .col h1 {
   justify-content: center;
   align-items: center;
   height: calc(var(--vh) * 6);
-  transform: translateY(calc(-100%));
+  transform: translateY(-100%);
   font-size: calc(var(--vh) * 4.9);
   margin: 0;
   pointer-events: none;
@@ -182,6 +225,53 @@ main #curShortcut a p {
 }
 .search input:focus {
   outline: 0;
+}
+
+.planetCont {
+  width: 75%;
+  height: 75%;
+  position: absolute;
+  border-radius: 100%;
+  border: 8px solid white;
+  animation: orbit1 5s infinite linear;
+}
+@keyframes orbit1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.planetCont .planet1 {
+  width: 100px;
+  height: 100px;
+  background: #f02;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateX(50%) translateY(-50%);
+  animation: orbit2 4s infinite linear;
+}
+@keyframes orbit2 {
+  0% {
+    transform: translateX(50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(50%) translateY(-50%) rotate(-360deg);
+  }
+}
+.planetCont .planet1 .planet2 {
+  width: 40px;
+  height: 40px;
+  background: #4000ff;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateX(150%) translateY(-50%);
+  right: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

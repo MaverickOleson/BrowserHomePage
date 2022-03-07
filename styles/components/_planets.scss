@@ -1,0 +1,46 @@
+.planetCont{
+	width: 75%;
+	height: 75%;
+	position: absolute;
+	border-radius: 100%;
+	border: 8px solid white;
+	animation: orbit1 5s infinite linear;
+	@keyframes orbit1 {
+		0%{
+			transform: rotate(0deg);
+		}
+		100%{
+			transform: rotate(-360deg);
+		}
+	}
+	.planet1{
+		width: 100px;
+		height: 100px;
+		background: #f02;
+		border-radius: 100%;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateX(50%) translateY(-50%);
+		animation: orbit2 4s infinite linear;
+		@keyframes orbit2 {
+			0%{
+				transform: translateX(50%) translateY(-50%) rotate(0deg);
+			}
+			100%{
+				transform: translateX(50%) translateY(-50%) rotate(-360deg);
+			}
+		}
+		.planet2{
+			width: 40px;
+			height: 40px;
+			background: #4000ff;
+			border-radius: 100%;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateX(150%) translateY(-50%);
+			right: 0;
+		}
+	}
+}
