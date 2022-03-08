@@ -201,6 +201,28 @@ main #curShortcut a p {
   margin: 0;
   margin-left: 5px;
 }
+main .audio {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: black;
+  border-radius: 100%;
+  border: 10px solid white;
+  cursor: pointer;
+}
+main .audio div {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 35px solid white;
+  margin-left: 12%;
+}
 
 .search {
   width: min(550px, 70%);
