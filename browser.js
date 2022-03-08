@@ -8,6 +8,7 @@ if (localStorage.getItem("recentSearches")) {
     });
 };
 $('.shortcuts .col').click(e => {
+    window.scrollTo(0, document.body.scrollHeight);
     if (!$(e.target).hasClass('open')) {
         $(e.target).siblings().removeClass('open');
         $(e.target).addClass('open');
