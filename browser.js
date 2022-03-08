@@ -1,9 +1,12 @@
 const favicon = 'https://s2.googleusercontent.com/s2/favicons?domain_url=';
-if (localStorage.getItem("recentSearches")) JSON.parse(localStorage.getItem("recentSearches")).forEach((e, i) => {
-    $('#curShortcut a').eq(i).attr('href', `${e}`);
-    $('#curShortcut a img').eq(i).attr('src', `${favicon}${e}`);
-    $('#curShortcut a p').eq(i).text(`${e.match(/^https:\/\/(.+)\//)[1]}`);
-});
+if (localStorage.getItem("recentSearches")) {
+    $('#curShortcut h1').css({ display: 'none' });
+    JSON.parse(localStorage.getItem("recentSearches")).forEach((e, i) => {
+        $('#curShortcut a').eq(i).attr('href', `${e}`);
+        $('#curShortcut a img').eq(i).attr('src', `${favicon}${e}`);
+        $('#curShortcut a p').eq(i).text(`${e.match(/^https:\/\/(.+)\//)[1]}`);
+    });
+};
 $('.shortcuts .col').click(e => {
     if (!$(e.target).hasClass('open')) {
         $(e.target).siblings().removeClass('open');
@@ -23,7 +26,6 @@ $('.shortcuts .col').click(e => {
                         }
                     )
                 });
-
                 if (localStorage.getItem("recentSearches")) JSON.parse(localStorage.getItem("recentSearches")).forEach((e, i) => {
                     $('#curShortcut a').eq(i).attr('href', `${e}`);
                     $('#curShortcut a img').eq(i).attr('src', `${favicon}${e}`);
@@ -120,6 +122,11 @@ $('.shortcuts .col').click(e => {
                 $('#curShortcut a').eq(3).attr('href', 'https://mail.google.com/');
                 $('#curShortcut a img').eq(3).attr('src', `${favicon}https://mail.google.com/`);
                 $('#curShortcut a p').eq(3).text('gmail.com');
+            }
+            if (!$('.shortcuts .col').eq(0).hasClass('open')) {
+                $('#curShortcut h1').css({ display: 'none' });
+            } else {
+                if (!localStorage.getItem("recentSearches")) $('#curShortcut h1').css({ display: 'block' });
             }
             $('#curShortcut').addClass('fadein');
         })

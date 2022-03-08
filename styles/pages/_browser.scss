@@ -33,28 +33,19 @@ main{
             color: darkgray;
         }
         &:focus{
-            animation: borderRainbow 10s linear infinite;
+            animation: borderRainbow 10s linear infinite alternate;
             @keyframes borderRainbow {
                 0%{
-                    border-color: #fff;
-                }
-                16%{
-                    border-color: #4000ff;
+                    border-color: #0ff;
                 }
                 33%{
-                    border-color: #f0f;
-                }
-                49%{
-                    border-color: #f02;
+                    border-color: #4000ff;
                 }
                 66%{
                     border-color: #f0f;
                 }
-                73%{
-                    border-color: #4000ff;
-                }
                 100%{
-                    border-color: #0ff;
+                    border-color: #f02;
                 }
             }
         }
@@ -119,6 +110,7 @@ main{
         height: 120px;
         @include row;
         justify-content: center;
+        color: #f02;
         &.fadeout{
             animation: fadeout 0.4s;
         }

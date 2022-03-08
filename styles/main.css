@@ -57,29 +57,20 @@ main .search input::placeholder {
   color: darkgray;
 }
 main .search input:focus {
-  animation: borderRainbow 10s linear infinite;
+  animation: borderRainbow 10s linear infinite alternate;
 }
 @keyframes borderRainbow {
   0% {
-    border-color: #fff;
-  }
-  16% {
-    border-color: #4000ff;
+    border-color: #0ff;
   }
   33% {
-    border-color: #f0f;
-  }
-  49% {
-    border-color: #f02;
+    border-color: #4000ff;
   }
   66% {
     border-color: #f0f;
   }
-  73% {
-    border-color: #4000ff;
-  }
   100% {
-    border-color: #0ff;
+    border-color: #f02;
   }
 }
 main .shortcuts {
@@ -138,7 +129,7 @@ main .shortcuts .col h1 {
   justify-content: center;
   align-items: center;
   height: calc(var(--vh) * 6);
-  transform: translateY(-100%);
+  transform: translateY(calc(-100%));
   font-size: calc(var(--vh) * 4.9);
   margin: 0;
   pointer-events: none;
@@ -153,6 +144,7 @@ main #curShortcut {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  color: #f02;
 }
 main #curShortcut.fadeout {
   animation: fadeout 0.4s;
@@ -232,7 +224,7 @@ main #curShortcut a p {
   height: 75%;
   position: absolute;
   border-radius: 100%;
-  border: 8px solid white;
+  border: 1px solid white;
   animation: orbit1 5s infinite linear;
 }
 @keyframes orbit1 {
