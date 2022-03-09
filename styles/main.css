@@ -36,14 +36,14 @@ main .logo {
   justify-content: center;
   align-items: center;
 }
-main .logo img {
-  width: 100%;
-  z-index: 1;
-}
 main .logo:after {
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+main .logo img {
+  width: 100%;
+  z-index: 1;
 }
 main .search input {
   font-family: main;
@@ -129,7 +129,7 @@ main .shortcuts .col h1 {
   justify-content: center;
   align-items: center;
   height: calc(var(--vh) * 6);
-  transform: translateY(-100%);
+  transform: translateY(calc(-100%));
   font-size: calc(var(--vh) * 4.9);
   margin: 0;
   pointer-events: none;
@@ -202,26 +202,23 @@ main #curShortcut a p {
   margin-left: 5px;
 }
 main .audio {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100px;
+  background-image: url("./svgs/play.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   position: absolute;
-  left: 0;
   top: 0;
-  background: black;
-  border-radius: 100%;
-  border: 10px solid white;
+  left: 0;
   cursor: pointer;
 }
-main .audio div {
-  width: 0;
-  height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 35px solid white;
-  margin-left: 12%;
+main .audio:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+main .audio.on {
+  background-image: url("./svgs/pause.svg");
 }
 
 .search {

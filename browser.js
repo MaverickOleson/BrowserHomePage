@@ -149,3 +149,12 @@ $('.search').keydown(e => {
         $(location).attr('href', val);
     }
 });
+$('.audio').click(e => {
+    if ($(e.target).hasClass('on')) {
+        $(e.target).removeClass('on');
+        $(e.target).find('audio').trigger('pause');
+    } else {
+        $(e.target).addClass('on')
+        $(e.target).find('audio').trigger('play');
+    }
+})
